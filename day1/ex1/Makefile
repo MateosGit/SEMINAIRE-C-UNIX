@@ -8,3 +8,8 @@ BIN = main
 $(BIN): $(OBJ)
 
 all: $(BIN)
+
+.PHONY: clean
+
+clean:
+	${RM} ${OBJ} ${BIN}
