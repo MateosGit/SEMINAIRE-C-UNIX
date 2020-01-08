@@ -26,9 +26,10 @@ int main(int argc, char *argv[]) {
             err(3, "minicat: read syscall error.");
         int i = 0;
         int wr;
+        int count = 0;
         while(i < r) {
             if(buff[i] == '\n') {
-                r = r - i;
+                count += i;
                 wr = write(1, buff, i);
                 if(wr == -1) 
                     err(3, "minicat: syscall error");
@@ -36,7 +37,7 @@ int main(int argc, char *argv[]) {
             }
             i++;
         }
-        wr = write(1, buff, r);
+        wr = write(1, buff, r - count);
     }
     
     close(fd_in);
