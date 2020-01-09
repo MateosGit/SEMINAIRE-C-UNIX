@@ -1,0 +1,15 @@
+CC = gcc
+CFLAGS =  -std=c99 -g
+
+SRC = main.c
+OBJ = ${SRC:.c=.o}
+BIN = main
+
+${BIN}: ${OBJ}
+
+all: ${BIN}
+
+clean: 
+	${RM} ${OBJ} ${BIN}
+
+
